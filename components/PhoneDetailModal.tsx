@@ -30,55 +30,55 @@ const PhoneDetailModal: React.FC<PhoneDetailModalProps> = ({
   };
 
   const SpecGridItem = ({ icon, label, value }: { icon: string, label: string, value: string }) => (
-    <div className="bg-slate-900/40 border border-blue-500/5 p-5 rounded-2xl flex flex-col gap-3 group hover:border-blue-500/20 transition-all">
-       <div className="flex items-center gap-3">
-          <div className="w-8 h-8 rounded-lg bg-blue-600/10 flex items-center justify-center text-blue-500">
-             <i className={`fas ${icon} text-xs`}></i>
+    <div className="bg-slate-900/40 border border-blue-500/5 p-4 md:p-5 rounded-2xl flex flex-col gap-2 md:gap-3 group hover:border-blue-500/20 transition-all">
+       <div className="flex items-center gap-2 md:gap-3">
+          <div className="w-7 h-7 md:w-8 md:h-8 rounded-lg bg-blue-600/10 flex items-center justify-center text-blue-500 shrink-0">
+             <i className={`fas ${icon} text-[10px] md:text-xs`}></i>
           </div>
-          <span className="tech-mono text-[9px] text-slate-500 uppercase tracking-widest font-bold">{label}</span>
+          <span className="tech-mono text-[8px] md:text-[9px] text-slate-500 uppercase tracking-widest font-bold">{label}</span>
        </div>
-       <div className="text-white font-bold text-sm tech-mono group-hover:text-blue-400 transition-colors">{value}</div>
+       <div className="text-white font-bold text-xs md:text-sm tech-mono group-hover:text-blue-400 transition-colors">{value}</div>
     </div>
   );
 
   return (
-    <div className="fixed inset-0 z-[250] flex items-center justify-center p-4">
+    <div className="fixed inset-0 z-[250] flex items-center justify-center p-2 md:p-4">
       <div className="absolute inset-0 bg-slate-950/98 backdrop-blur-3xl" onClick={onClose} />
       
-      <div className="relative glass w-full max-w-6xl max-h-[95vh] rounded-[3rem] overflow-y-auto border-blue-500/20 shadow-[0_0_100px_rgba(0,0,0,1)] animate-in zoom-in-95 duration-300">
+      <div className="relative glass w-full max-w-6xl max-h-[92vh] rounded-[2rem] md:rounded-[3rem] overflow-y-auto border-blue-500/20 shadow-[0_0_100px_rgba(0,0,0,1)] animate-in zoom-in-95 duration-300 no-scrollbar">
         
         {/* Top Header Controls */}
-        <div className="sticky top-0 z-50 bg-slate-950/80 backdrop-blur-md border-b border-blue-500/10 px-8 py-6 flex justify-between items-center">
-           <div className="flex items-center gap-4">
-              <span className="tech-mono text-[10px] text-blue-500 uppercase tracking-[0.4em]">Unit_Diagnostic_Report</span>
+        <div className="sticky top-0 z-50 bg-slate-950/90 backdrop-blur-md border-b border-blue-500/10 px-5 py-4 md:px-8 md:py-6 flex justify-between items-center">
+           <div className="flex items-center gap-3">
+              <span className="tech-mono text-[8px] md:text-[10px] text-blue-500 uppercase tracking-[0.4em]">Unit_Diagnostic_Report</span>
               <div className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse"></div>
            </div>
-           <button onClick={onClose} className="w-10 h-10 rounded-full glass border border-blue-500/20 flex items-center justify-center text-slate-500 hover:text-white transition-all">
-              <i className="fas fa-times"></i>
+           <button onClick={onClose} className="w-9 h-9 md:w-10 md:h-10 rounded-full glass border border-blue-500/20 flex items-center justify-center text-slate-500 hover:text-white transition-all">
+              <i className="fas fa-times text-sm"></i>
            </button>
         </div>
 
-        <div className="p-8 md:p-12 lg:p-16">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+        <div className="p-6 md:p-12 lg:p-16">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-16 items-start">
             
             {/* Esquerda: Visual do Aparelho */}
-            <div className="lg:col-span-5 flex flex-col gap-8">
-               <div className="relative aspect-[4/5] glass rounded-[3rem] p-12 flex items-center justify-center bg-gradient-to-tr from-blue-600/5 to-transparent border-blue-500/10 overflow-hidden group">
+            <div className="lg:col-span-5 flex flex-col gap-6 md:gap-8">
+               <div className="relative aspect-[4/5] glass rounded-[2rem] md:rounded-[3rem] p-8 md:p-12 flex items-center justify-center bg-gradient-to-tr from-blue-600/5 to-transparent border-blue-500/10 overflow-hidden group">
                   <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-5"></div>
                   <img 
                     src={phone.image} 
                     alt={phone.name} 
-                    className="max-w-full max-h-full object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.8)] scale-110 group-hover:rotate-3 transition-transform duration-700"
+                    className="max-w-[85%] max-h-[85%] object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.8)] scale-110 group-hover:rotate-3 transition-transform duration-700"
                   />
                </div>
-               <div className="grid grid-cols-2 gap-4">
-                  <button onClick={handleWhatsApp} className="flex items-center justify-center gap-3 py-5 bg-green-600/10 border border-green-500/20 rounded-2xl text-green-500 font-black uppercase text-[10px] tracking-widest hover:bg-green-600 hover:text-white transition-all">
-                     <i className="fab fa-whatsapp text-lg"></i>
+               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <button onClick={handleWhatsApp} className="flex items-center justify-center gap-3 py-4 md:py-5 bg-green-600/10 border border-green-500/20 rounded-2xl text-green-500 font-black uppercase text-[10px] tracking-widest hover:bg-green-600 hover:text-white transition-all">
+                     <i className="fab fa-whatsapp text-base"></i>
                      Consultar Unidade
                   </button>
                   <button 
                     onClick={() => onCompare(phone)}
-                    className={`flex items-center justify-center gap-3 py-5 rounded-2xl font-black uppercase text-[10px] tracking-widest transition-all tech-mono border ${
+                    className={`flex items-center justify-center gap-3 py-4 md:py-5 rounded-2xl font-black uppercase text-[10px] tracking-widest transition-all tech-mono border ${
                       isComparing 
                       ? 'bg-blue-600 border-blue-400 text-white shadow-[0_0_20px_rgba(37,99,235,0.4)]' 
                       : 'bg-slate-900/50 border-blue-500/10 text-slate-400 hover:border-blue-500/40 hover:text-white'
@@ -92,29 +92,29 @@ const PhoneDetailModal: React.FC<PhoneDetailModalProps> = ({
 
             {/* Direita: Dados Técnicos */}
             <div className="lg:col-span-7 flex flex-col">
-               <div className="mb-10">
-                  <span className="text-blue-500 font-bold uppercase tech-mono text-xs tracking-widest">{phone.brand} Authorized Unit</span>
-                  <h2 className="text-5xl md:text-6xl font-black text-white italic uppercase tracking-tighter mb-4 mt-2">{phone.name}</h2>
-                  <div className="flex items-center gap-6">
-                    <div className="text-4xl font-black text-white italic">
-                        <span className="text-blue-500 text-xl mr-2">R$</span>
+               <div className="mb-8 md:mb-10 text-center lg:text-left">
+                  <span className="text-blue-500 font-bold uppercase tech-mono text-[10px] md:text-xs tracking-widest">{phone.brand} Authorized Unit</span>
+                  <h2 className="text-3xl md:text-6xl font-black text-white italic uppercase tracking-tighter mb-3 md:mb-4 mt-1 md:mt-2 leading-tight">{phone.name}</h2>
+                  <div className="flex flex-col lg:flex-row items-center gap-3 md:gap-6">
+                    <div className="text-3xl md:text-4xl font-black text-white italic">
+                        <span className="text-blue-500 text-lg mr-2 font-bold">R$</span>
                         {phone.price.toLocaleString('pt-BR')}
                     </div>
-                    <div className="h-8 w-[1px] bg-slate-800"></div>
-                    <div className="flex gap-1">
+                    <div className="hidden lg:block h-8 w-[1px] bg-slate-800"></div>
+                    <div className="flex gap-1.5">
                        {[...Array(5)].map((_, i) => (
-                         <i key={i} className={`fas fa-star text-[10px] ${i < Math.floor(phone.rating) ? 'text-blue-500' : 'text-slate-800'}`}></i>
+                         <i key={i} className={`fas fa-star text-[9px] md:text-[10px] ${i < Math.floor(phone.rating) ? 'text-blue-500' : 'text-slate-800'}`}></i>
                        ))}
                     </div>
                   </div>
                </div>
 
-               <div className="mb-12">
-                  <h3 className="tech-mono text-[10px] text-blue-500 uppercase tracking-widest mb-4 border-b border-blue-500/10 pb-2">Description_Field</h3>
-                  <p className="text-slate-400 leading-relaxed text-lg italic">{phone.description}</p>
+               <div className="mb-10 md:mb-12">
+                  <h3 className="tech-mono text-[9px] md:text-[10px] text-blue-500 uppercase tracking-widest mb-3 md:mb-4 border-b border-blue-500/10 pb-2">Description_Field</h3>
+                  <p className="text-slate-400 leading-relaxed text-base md:text-lg italic">{phone.description}</p>
                </div>
 
-               <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+               <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
                   <SpecGridItem icon="fa-desktop" label="Screen_Diag" value={phone.specs.display} />
                   <SpecGridItem icon="fa-microchip" label="Engine_Core" value={phone.specs.processor} />
                   <SpecGridItem icon="fa-memory" label="Buffer_RAM" value={phone.specs.ram} />
@@ -126,32 +126,30 @@ const PhoneDetailModal: React.FC<PhoneDetailModalProps> = ({
           </div>
 
           {/* Seção Similares */}
-          <div className="mt-24">
-             <div className="flex items-center gap-6 mb-12">
-                <h3 className="text-2xl font-black text-white uppercase italic tracking-tighter">Aparelhos <span className="text-blue-500">Similares</span></h3>
+          <div className="mt-16 md:mt-24">
+             <div className="flex items-center gap-4 md:gap-6 mb-8 md:mb-12">
+                <h3 className="text-xl md:text-2xl font-black text-white uppercase italic tracking-tighter">Aparelhos <span className="text-blue-500">Similares</span></h3>
                 <div className="flex-1 h-[1px] bg-gradient-to-r from-blue-500/20 to-transparent"></div>
-                <span className="tech-mono text-[9px] text-slate-600 uppercase tracking-[0.3em]">Related_Units_Matrix</span>
+                <span className="hidden sm:inline tech-mono text-[9px] text-slate-600 uppercase tracking-[0.3em]">Related_Units_Matrix</span>
              </div>
 
-             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+             <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-8">
                 {similarPhones.map(p => (
                   <div 
                     key={p.id}
                     onClick={() => {
                        onClose();
-                       // Pequeno delay para a animação de fechar e reabrir
                        setTimeout(() => {
-                         // Aqui chamamos o state de quem abriu o modal (App.tsx)
                          window.scrollTo({ top: 0, behavior: 'smooth' });
                        }, 100);
                     }}
-                    className="glass p-6 rounded-3xl border-blue-500/5 hover:border-blue-500/30 transition-all group cursor-pointer"
+                    className="glass p-4 md:p-6 rounded-2xl md:rounded-3xl border-blue-500/5 hover:border-blue-500/30 transition-all group cursor-pointer"
                   >
-                    <div className="aspect-square flex items-center justify-center mb-6">
-                       <img src={p.image} className="w-24 h-24 object-contain group-hover:scale-110 transition-transform drop-shadow-lg" alt={p.name} />
+                    <div className="aspect-square flex items-center justify-center mb-4 md:mb-6">
+                       <img src={p.image} className="w-16 h-16 md:w-24 md:h-24 object-contain group-hover:scale-110 transition-transform drop-shadow-lg" alt={p.name} />
                     </div>
-                    <h4 className="text-white font-black uppercase text-xs tracking-tighter italic mb-1">{p.name}</h4>
-                    <p className="text-blue-500 font-bold tech-mono text-[10px]">R$ {p.price.toLocaleString('pt-BR')}</p>
+                    <h4 className="text-white font-black uppercase text-[10px] md:text-xs tracking-tighter italic mb-1 line-clamp-1">{p.name}</h4>
+                    <p className="text-blue-500 font-bold tech-mono text-[9px] md:text-[10px]">R$ {p.price.toLocaleString('pt-BR')}</p>
                   </div>
                 ))}
              </div>
