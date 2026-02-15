@@ -1,0 +1,7 @@
+{
+  "name": "CostaiPhones ",
+  "description": "Um catálogo de smartphones moderno com design tech-futurista, comparativos em tempo real e assistente inteligente Gemini para recomendação de dispositivos.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
