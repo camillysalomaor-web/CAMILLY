@@ -5,16 +5,17 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
   plugins: [react()],
   define: {
-    // Garante que o SDK do Gemini encontre a variável de ambiente necessária
-    'process.env': {
-      API_KEY: process.env.API_KEY || ''
-    }
+    // Isso substitui as chamadas de process.env no código pelo valor real durante o build
+    'process.env.API_KEY': JSON.stringify(process.env.API_KEY || '')
   },
   server: {
-    port: 3000
+    port: 3000,
+    host: true
   },
   build: {
     outDir: 'dist',
-    sourcemap: false // Desativado para builds menores e mais rápidos
+    minify: 'terser',
+    cssMinify: true,
+    sourcemap: false
   }
 });
